@@ -42,6 +42,13 @@ public class Library
 		_userDB.persistUser(user);
 	}
 	
+	public void levyBlockUser(String name)
+	{
+		User user = _userDB.getUser(name);
+		user.levyBlock();
+		_userDB.persistUser(user);
+	}
+	
 	public boolean registerBorrow(String userName, int bookId, int returnDate)
 	{
 		User user = _userDB.getUser(userName);

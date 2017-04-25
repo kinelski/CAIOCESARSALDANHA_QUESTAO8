@@ -1,8 +1,6 @@
 
 public class Book {
-	@SuppressWarnings("unused")
 	private String _title;
-	@SuppressWarnings("unused")
 	private String _author;
 	
 	private boolean _available;
@@ -50,6 +48,16 @@ public class Book {
 		_available = true;
 		_lost = false;
 		_holder = null;
+	}
+	
+	public String getTitle()
+	{
+		return _title;
+	}
+	
+	public String getAuthor()
+	{
+		return _author;
 	}
 	
 	public int getId()
