@@ -6,7 +6,6 @@ public class Book {
 	private boolean _available;
 	private boolean _lost;
 	private int _id;
-	@SuppressWarnings("unused")
 	private String _holder;
 	private int _returnDate;
 	
@@ -63,6 +62,11 @@ public class Book {
 	public int getId()
 	{
 		return _id;
+	}
+	
+	public String getHolder()
+	{
+		return _holder;
 	}
 	
 	public int getReturnDate()

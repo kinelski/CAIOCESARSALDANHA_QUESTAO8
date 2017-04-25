@@ -49,6 +49,13 @@ public class Library
 		_userDB.persistUser(user);
 	}
 	
+	public void registerLostBook(int bookId)
+	{
+		Book book = _bookDB.getBook(bookId);
+		book.setLost();
+		levyBlockUser(book.getHolder());
+	}
+	
 	public boolean registerBorrow(String userName, int bookId, int returnDate)
 	{
 		User user = _userDB.getUser(userName);
@@ -91,5 +98,19 @@ public class Library
 		Book book = _bookDB.getBook(id);
 		book.setLost();
 		_bookDB.persistBook(book);
+	}
+	
+	public String bookStatus(int bookId)
+	{
+		Book book = _bookDB.getBook(bookId);
+		if (book.isAvailable())
+		{
+			return "disponivel";
+		}
+		if (book.isLost())
+		{
+			return "extraviado";
+		}
+		return "retirado";
 	}
 }

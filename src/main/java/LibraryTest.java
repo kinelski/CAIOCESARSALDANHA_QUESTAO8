@@ -111,4 +111,35 @@ public class LibraryTest extends TestDBSetup
 		library.registerReturn("Covarde", id, 6);
 		assertTrue(userDB.getUser("Covarde").isBlocked());
 	}
+	
+	@Test
+	public void RegisteringLostBookSetsUserBlockedAndBookLost()
+	{
+		int id = library.createBook("Quase", "Terminando");
+		
+		library.createUser("Rubinho");
+		library.registerBorrow("Rubinho", id, 0);
+		library.registerLostBook(id);
+		
+		User user = userDB.getUser("Rubinho");
+		Book book = bookDB.getBook(id);
+		
+		assertTrue(user.isLevyBlocked());
+		assertTrue(book.isLost());
+	}
+	
+	@Test
+	public void MethodBookStatusReturnTheCorrectStatus()
+	{
+		library.createUser("Mirizas");
+		int id = library.createBook("TDD", "Suga");
+		User user = userDB.getUser("Mirizas");
+		assertTrue(library.bookStatus(id) == "disponivel");
+		
+		library.registerBorrow("Mirizas", id, 0);
+		assertTrue(library.bookStatus(id) == "retirado");
+		
+		library.setLostBook(id);
+		assertTrue(library.bookStatus(id) == "extraviado");
+	}
 }
