@@ -26,7 +26,7 @@ public class Library
 		{
 			return false;
 		}
-		_userDB.insertUser(new User(name));
+		_userDB.insertUser(new User(name, _bookDB));
 		return true;
 	}
 	
@@ -76,6 +76,13 @@ public class Library
 		}
 		
 		_userDB.persistUser(user);
+		_bookDB.persistBook(book);
+	}
+	
+	public void setLostBook(int id)
+	{
+		Book book = _bookDB.getBook(id);
+		book.setLost();
 		_bookDB.persistBook(book);
 	}
 }

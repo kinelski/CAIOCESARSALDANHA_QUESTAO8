@@ -6,11 +6,14 @@ public class User
 	@SuppressWarnings("unused")
 	private int _unblockDate;
 	
-	public User(String name)
+	private BookDB _bookDB;
+	
+	public User(String name, BookDB bookDB)
 	{
 		_name = name;
 		_blocked = false;
 		_unblockDate = 0;
+		_bookDB = bookDB;
 	}
 	
 	public String getName()
@@ -40,5 +43,19 @@ public class User
 	
 	public void returnBook(int bookId)
 	{
+	}
+	
+	public String bookStatus(int bookId)
+	{
+		Book book = _bookDB.getBook(bookId);
+		if (book.isAvailable())
+		{
+			return "disponivel";
+		}
+		if (book.isLost())
+		{
+			return "extraviado";
+		}
+		return "retirado";
 	}
 }

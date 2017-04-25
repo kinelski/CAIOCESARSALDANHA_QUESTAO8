@@ -6,7 +6,6 @@ public class Book {
 	private String _author;
 	
 	private boolean _available;
-	@SuppressWarnings("unused")
 	private boolean _lost;
 	private int _id;
 	@SuppressWarnings("unused")
@@ -27,6 +26,11 @@ public class Book {
 	public boolean isAvailable()
 	{
 		return _available;
+	}
+	
+	public boolean isLost()
+	{
+		return _lost;
 	}
 	
 	public boolean borrow(String userName, int returnDate)
@@ -56,5 +60,11 @@ public class Book {
 	public int getReturnDate()
 	{
 		return _returnDate;
+	}
+	
+	public void setLost()
+	{
+		_available = false;
+		_lost = true;
 	}
 }
