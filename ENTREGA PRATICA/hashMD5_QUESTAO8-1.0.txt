@@ -1,0 +1,4 @@
+//
+// File Checksum Integrity Verifier version 2.05.
+//
+e1cea9f47c274f518702a449e1bd409b caiocesarsaldanha_questao8-1.0.zip

@@ -1,0 +1,29 @@
+Histórico obtido pela aplicação do comando:
+git reflog show origin/master
+
+As duas primeiras linhas são consequência de um problema que tive com o Git e com as releases do projeto.
+As seis últimas linhas são os pushes referentes ao projeto propriamente dito.
+
+Contém 6 commits, 1 por push:
+- O commit do repositório inicial contendo apenas Maven e dependências (Mockito e JUnit).
+- Os 5 commits referentes aos sprints 1 a 5.
+
+Obviamente não foi possível submeter a linha de histórico do último push, pois foi ele gerado ao subir este próprio arquivo
+(history.txt) no repositório.
+
+6bf8bac refs/remotes/origin/master@{0}: update by push
+
+a4b202c refs/remotes/origin/master@{1}: update by push
+
+
+6bf8bac refs/remotes/origin/master@{2}: update by push
+
+61b2b38 refs/remotes/origin/master@{3}: update by push
+
+4282886 refs/remotes/origin/master@{4}: update by push
+
+fa52943 refs/remotes/origin/master@{5}: update by push
+
+a0c72f9 refs/remotes/origin/master@{6}: update by push
+
+b72aacf refs/remotes/origin/master@{7}: update by push
